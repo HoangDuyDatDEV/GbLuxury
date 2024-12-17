@@ -8,6 +8,7 @@ import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.security.NoSuchAlgorithmException;
+import java.util.UUID;
 
 @RestController
 //@PreAuthorize("@appAuthorizer.authorize(authentication, #action, this)")
@@ -26,7 +27,7 @@ public abstract class BaseController<T extends BaseEntity> {
     }
 
     @GetMapping("/detail")
-    public BaseResponse getById(@RequestParam(value = "id") String id) throws Exception {
+    public BaseResponse getById(@RequestParam(value = "id") UUID id) throws Exception {
         return new BaseResponse(200, "Lấy dữ liệu thành công!", this.getService().getById(id));
     }
 
@@ -37,7 +38,7 @@ public abstract class BaseController<T extends BaseEntity> {
 
 
     @DeleteMapping("/delete")
-    public BaseResponse deleteById(@RequestParam(name = "id") String id) {
+    public BaseResponse deleteById(@RequestParam(name = "id") UUID id) {
         this.getService().delete(id);
         return new BaseResponse(200, "Xóa thành công!");
     }
