@@ -34,7 +34,6 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
 
     @Override
     public Page<T> search(SearchReq req) {
-        req.setFilter(req.getFilter().concat(DELETED_FILTER));
         Node rootNode = new RSQLParser().parse(req.getFilter());
         Specification<T> spec = rootNode.accept(new CustomRsqlVisitor<T>());
         Pageable pageable = getPage(req);
