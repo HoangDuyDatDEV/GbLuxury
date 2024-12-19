@@ -32,6 +32,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(AUTH_WHITELIST).permitAll()
                 .antMatchers("/**/login").permitAll()
                 .antMatchers("/**/user/create").permitAll()
+                .antMatchers("/**/categories/client/tree").permitAll()
+                .antMatchers("/**/categories/client/tree/by-id").permitAll()
+                .antMatchers("/**/news/client/search/custom").permitAll()
+                .antMatchers("/**/menu_config/client/search/custom").permitAll()
+                .antMatchers("/**/menu_config/client/custom/by-id").permitAll()
                 .anyRequest().authenticated();
 
         http.addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class);

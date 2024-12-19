@@ -36,6 +36,15 @@ public class NewsController extends BaseController<News> {
         Page<NewsRes> newsResPage = newsService.searchNews(title, categoryId, pageable, isCategoryParent);
         return ResponseEntity.ok(newsResPage);
     }
+    @GetMapping("/client/search/custom")
+    public ResponseEntity<Page<NewsRes>> searchNewsClient(
+            @RequestParam(value = "title", required = false) String title,
+            @RequestParam(value = "categoryId", required = false) String categoryId,
+            @RequestParam(value = "isCategoryParent", defaultValue = "false") boolean isCategoryParent,
+            Pageable pageable) {
+        Page<NewsRes> newsResPage = newsService.searchNews(title, categoryId, pageable, isCategoryParent);
+        return ResponseEntity.ok(newsResPage);
+    }
 
     /**
      * Update existing news

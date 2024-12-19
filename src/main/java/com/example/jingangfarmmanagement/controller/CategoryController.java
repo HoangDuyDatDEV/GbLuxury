@@ -35,6 +35,14 @@ public class CategoryController extends BaseController<Category> {
     public CategoryDTO getCategoryTreeById(@RequestParam UUID parentId){
         return  categoryService.getCategoryTreeById(parentId);
     }
+    @GetMapping("/client/tree")
+    public List<CategoryDTO> getCategoryClientTree() {
+        return categoryService.getCategoryTree();
+    }
+    @GetMapping("/client/tree/by-id")
+    public CategoryDTO getCategoryClientTreeById(@RequestParam UUID parentId){
+        return  categoryService.getCategoryTreeById(parentId);
+    }
 
     @PostMapping("/custom/create")
     public ResponseEntity<Void> create(@RequestBody CategoryDTO categoryDTO) {
