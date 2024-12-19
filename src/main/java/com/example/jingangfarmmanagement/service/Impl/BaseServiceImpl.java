@@ -77,8 +77,7 @@ public abstract class BaseServiceImpl<T extends BaseEntity> implements BaseServi
     @Override
     public void delete(UUID id) {  // Sửa để nhận UUID thay vì String
         T entity = this.getRepository().findById(id);
-        entity.setStatus(Status.DELETED);
-        this.getRepository().save(entity);
+        this.getRepository().delete(entity);
     }
 
     @Override

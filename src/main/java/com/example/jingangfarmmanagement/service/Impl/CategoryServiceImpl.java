@@ -28,7 +28,7 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements Ca
     @Override
     public List<CategoryDTO> getCategoryTree() {
         // Lấy tất cả các category từ repository
-        List<Category> categories = categoryRepository.findAllByStatus(1);
+        List<Category> categories = categoryRepository.findAll();
 
         // Danh sách chứa các category gốc (không có parent)
         List<Category> rootCategories = categories.stream()
@@ -52,7 +52,7 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements Ca
     public CategoryDTO getCategoryTreeById(UUID parentId) {
         Category parentCategory = categoryRepository.findById(parentId);
 
-        List<Category> allCategories = categoryRepository.findAllByStatus(1);
+        List<Category> allCategories = categoryRepository.findAll();
 
         // Set để lưu các id của category đã được duyệt
         Set<UUID> visitedCategories = new HashSet<>();
