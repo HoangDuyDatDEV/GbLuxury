@@ -120,7 +120,7 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements Ca
         category.setPath(categoryDTO.getPath());
         category.setCode(categoryDTO.getCode());
         category.setName(categoryDTO.getName());
-
+        category.setStatus(1);
         if (categoryDTO.getParentCategoryId() != null) {
             Optional<Category> parentCategory = Optional.ofNullable(categoryRepository.findById(categoryDTO.getParentCategoryId()));
             parentCategory.ifPresent(category::setParentCategory);
@@ -138,7 +138,7 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements Ca
         category.setPath(categoryDTO.getPath());
         category.setCode(categoryDTO.getCode());
         category.setName(categoryDTO.getName());
-
+        category.setStatus(1);
         // Nếu có parentCategoryId, tìm và gán parentCategory
         if (categoryDTO.getParentCategoryId() != null) {
             Category parentCategory = categoryRepository.findById(categoryDTO.getParentCategoryId());
