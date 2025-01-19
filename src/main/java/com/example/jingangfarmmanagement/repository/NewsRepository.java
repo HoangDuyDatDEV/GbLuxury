@@ -34,5 +34,10 @@ public interface NewsRepository extends BaseRepository<News> {
     Page<News> findNewsByCategoryParent(@Param("parentId") String parentId,
                                         @Param("title") String title,
                                         Pageable pageable);
-
+    @Query(value = "SELECT * FROM News n " +
+            "WHERE (:title IS NULL OR n.title LIKE CONCAT('%', :title, '%'))",
+            countQuery = "SELECT COUNT(*) FROM News n " +
+                    "WHERE (:title IS NULL OR n.title LIKE CONCAT('%', :title, '%'))",
+            nativeQuery = true)
+    Page<News> findNewsByTitleContaining(@Param("title") String title, Pageable pageable);
 }

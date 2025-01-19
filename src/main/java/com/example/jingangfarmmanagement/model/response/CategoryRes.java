@@ -11,4 +11,5 @@ public class CategoryRes {
     private String code;
     private String title;
     private String name;
+    private CategoryRes parentCategory;
 }

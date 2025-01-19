@@ -75,10 +75,13 @@ public class NewsServiceImpl extends BaseServiceImpl<News> implements NewsServic
     public Page<NewsRes> searchNews(String title, String categoryId, Pageable pageable, boolean isCategoryParent) {
         Page<News> resultPage;
 
-        if (isCategoryParent) {
+        if (categoryId == null || categoryId.isEmpty()) {
+            resultPage = newsRepository.findNewsByTitleContaining(title, pageable);
+        } else if (isCategoryParent) {
             // Tìm theo parent category
             resultPage = newsRepository.findNewsByCategoryParent(categoryId, title, pageable);
         } else {
+            // Tìm theo categoryId
             resultPage = newsRepository.findByCategoryIdAndTitle(categoryId, title, pageable);
         }
 
@@ -91,8 +94,8 @@ public class NewsServiceImpl extends BaseServiceImpl<News> implements NewsServic
         newsRes.setId(entity.getId().toString());
         newsRes.setTitle(entity.getTitle());
         newsRes.setDescription(entity.getDescription());
-        newsRes.setImage(entity.getImage());
-        newsRes.setContent(entity.getContent());
+//        newsRes.setImage(entity.getImage());
+//        newsRes.setContent(entity.getContent());
 
         // Map CategoryRes nếu tồn tại
         if (entity.getCategory() != null) {
@@ -102,6 +105,15 @@ public class NewsServiceImpl extends BaseServiceImpl<News> implements NewsServic
             categoryRes.setCode(entity.getCategory().getCode());
             categoryRes.setTitle(entity.getCategory().getTitle());
             categoryRes.setName(entity.getCategory().getName());
+            if(entity.getCategory().getParentCategory() != null) {
+                CategoryRes categoryResParent = new CategoryRes();
+                categoryResParent.setId(entity.getCategory().getParentCategory().getId().toString());
+                categoryResParent.setPath(entity.getCategory().getParentCategory().getPath());
+                categoryResParent.setCode(entity.getCategory().getParentCategory().getCode());
+                categoryResParent.setTitle(entity.getCategory().getParentCategory().getTitle());
+                categoryResParent.setName(entity.getCategory().getParentCategory().getName());
+                categoryRes.setParentCategory(categoryResParent);
+            }
             newsRes.setCategoryRes(categoryRes);
         }
 
