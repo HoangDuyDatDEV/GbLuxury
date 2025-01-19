@@ -9,10 +9,10 @@
         <relativePath/>
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>Jingang-Farm-Management</artifactId>
+    <artifactId>GbLurxury</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>Jingang-Farm-Management</name>
-    <description>Jingang-Farm-Management</description>
+    <name>GbLurxury</name>
+    <description>GbLurxury</description>
     <properties>
         <java.version>11</java.version>
     </properties>

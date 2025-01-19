@@ -52,6 +52,7 @@ com\example\jingangfarmmanagement\config\jwt\CustomUserService.class
 com\example\jingangfarmmanagement\model\req\AssignUserRoleReq.class
 com\example\jingangfarmmanagement\service\UserRoleService.class
 com\example\jingangfarmmanagement\config\jwt\WebSecurityConfig.class
+com\example\jingangfarmmanagement\WebConfig.class
 com\example\jingangfarmmanagement\query\GenericRsqlSpecification$1.class
 com\example\jingangfarmmanagement\service\Impl\NewsServiceImpl.class
 com\example\jingangfarmmanagement\repository\CategoryRepository.class
