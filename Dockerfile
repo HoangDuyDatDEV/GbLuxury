@@ -1,5 +1,5 @@
 FROM openjdk:16-alpine
 WORKDIR /
-COPY target/Jingang-Farm-Management-0.0.1-SNAPSHOT.jar Jingang-Farm-Management-0.0.1-SNAPSHOT.jar
+COPY target/GB-0.0.1-SNAPSHOT.jar GB-0.0.1-SNAPSHOT.jar
 EXPOSE 8081
-CMD ["java", "-jar", "Jingang-Farm-Management-0.0.1-SNAPSHOT.jar"]
+CMD ["java", "-jar", "GB-0.0.1-SNAPSHOT.jar"]
