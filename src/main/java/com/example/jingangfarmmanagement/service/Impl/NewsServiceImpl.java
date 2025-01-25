@@ -1,5 +1,7 @@
 package com.example.jingangfarmmanagement.service.Impl;
 import com.example.jingangfarmmanagement.model.response.CategoryRes;
+import com.example.jingangfarmmanagement.repository.RefLinkRepository;
+import com.example.jingangfarmmanagement.repository.entity.RefLink;
 import cz.jirutka.rsql.parser.ast.Node;
 
 import com.example.jingangfarmmanagement.model.CategoryDTO;
@@ -23,6 +25,8 @@ import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
 import org.springframework.data.domain.Pageable;
+
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -34,6 +38,8 @@ public class NewsServiceImpl extends BaseServiceImpl<News> implements NewsServic
     private NewsRepository newsRepository;
     @Autowired
     private CategoryRepository categoryRepository;
+    @Autowired
+    private RefLinkRepository refLinkRepository;
     @Override
     protected BaseRepository<News> getRepository() {
         return newsRepository;
@@ -49,6 +55,15 @@ public class NewsServiceImpl extends BaseServiceImpl<News> implements NewsServic
         news.setImage(newsReq.getImage());
         news.setCategory(category);
         newsRepository.save(news);
+        List<RefLink> refLinks = new ArrayList<>();
+        for (var refLinkReq : newsReq.getRefLinkReq()){
+            RefLink refLink = new RefLink();
+            refLink.setLink(refLinkReq.getLink());
+            refLink.setNo(refLinkReq.getNo());
+            refLink.setNews(news);
+            refLinks.add(refLink);
+        }
+        refLinkRepository.saveAll(refLinks);
     }
 
     @Override
@@ -70,6 +85,16 @@ public class NewsServiceImpl extends BaseServiceImpl<News> implements NewsServic
 
         // Lưu lại News đã cập nhật
         newsRepository.save(news);
+
+        List<RefLink> refLinks = new ArrayList<>();
+        for (var refLinkReq : newsReq.getRefLinkReq()){
+            RefLink refLink = new RefLink();
+            refLink.setLink(refLinkReq.getLink());
+            refLink.setNo(refLinkReq.getNo());
+            refLink.setNews(news);
+            refLinks.add(refLink);
+        }
+        refLinkRepository.saveAll(refLinks);
     }
     @Override
     public Page<NewsRes> searchNews(String title, String categoryId, Pageable pageable, boolean isCategoryParent) {
@@ -116,6 +141,7 @@ public class NewsServiceImpl extends BaseServiceImpl<News> implements NewsServic
             }
             newsRes.setCategoryRes(categoryRes);
         }
+
 
         return newsRes;
     }

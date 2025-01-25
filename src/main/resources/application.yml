@@ -1,5 +1,5 @@
 server:
-  port: 8081
+  port: 8082
   servlet:
     context-path: /api/v1
 
@@ -37,10 +37,10 @@ spring:
             enable: true
 
 minio:
-  url: http://103.57.222.151:9000
-  access-key: FrD4IDKccM0ME5037Wlc
-  secret-key: Fwt3hY72wZhkabM7kGfIqryyhpIpJtEoun1api0K
-  bucket-name: jfarm
+  url: http://103.56.163.94:9001
+  access-key: XteKObKkOnpE5usb7mSP
+  secret-key: FPuC7YwsgDDn2pPgPrfVvHrxqxWKBltAqKBzv6BXp
+  bucket-name: gb-bucket-2025
 
 java:
   awt:

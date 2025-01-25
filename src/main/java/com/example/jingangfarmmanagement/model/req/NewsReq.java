@@ -6,6 +6,7 @@ import lombok.Data;
 import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import java.util.List;
 import java.util.UUID;
 
 @Data
@@ -16,4 +17,5 @@ public class NewsReq {
     private String image;
     private String content;
     private UUID categoryId;
+    private List<RefLinkReq> refLinkReq;
 }
