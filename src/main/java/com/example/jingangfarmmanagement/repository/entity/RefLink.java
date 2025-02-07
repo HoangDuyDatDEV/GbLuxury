@@ -1,6 +1,7 @@
 package com.example.jingangfarmmanagement.repository.entity;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -13,6 +14,7 @@ import javax.persistence.ManyToOne;
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
+@Builder
 public class RefLink extends BaseEntity{
     @Column(name = "link")
     private String link;

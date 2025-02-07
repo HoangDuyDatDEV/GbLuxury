@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: 8081
   servlet:
     context-path: /api/v1
 
@@ -37,9 +37,9 @@ spring:
             enable: true
 
 minio:
-  url: http://103.56.163.94:9001
-  access-key: XteKObKkOnpE5usb7mSP
-  secret-key: FPuC7YwsgDDn2pPgPrfVvHrxqxWKBltAqKBzv6BXp
+  url: http://103.56.163.94:9000
+  access-key: L1cbVODxS4OSGMbsgagW
+  secret-key: dlEcWdyBythhQ36xB4yjIqJORUHDUTBFV5tQcxnX
   bucket-name: gb-bucket-2025
 
 java:

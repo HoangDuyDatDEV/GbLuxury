@@ -1,5 +1,6 @@
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\model\req\NewsReq.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\JingangFarmManagementApplication.java
+D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\model\response\RefLinkRes.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\service\AuthorizerService.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\constants\Age.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\config\logger\LoggingAspect.java
@@ -18,9 +19,11 @@ D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarm
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\model\response\NewsRes.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\constants\Weight.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\repository\entity\UserRole.java
+D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\repository\RefLinkRepository.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\exception\GlobalException.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\model\req\CreateUserReq.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\config\MinIOConfig.java
+D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\service\RefLinkService.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\uitl\ContextUtil.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\repository\RoleRepository.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\service\BaseService.java
@@ -45,6 +48,7 @@ D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarm
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\model\response\MenuConfigRes.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\query\GenericRsqlSpecBuilder.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\service\Impl\CategoryServiceImpl.java
+D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\model\req\RefLinkReq.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\model\UserDto.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\query\CustomRsqlVisitor.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\repository\entity\Category.java
@@ -52,6 +56,7 @@ D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarm
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\model\req\SearchReq.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\config\logger\Loggable.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\repository\entity\News.java
+D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\repository\entity\RefLink.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\model\LoginResponse.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\service\Impl\UserServiceImpl.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\controller\BaseController.java
@@ -74,6 +79,7 @@ D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarm
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\controller\MenuConfigController.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\service\NewsService.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\uitl\DateUtil.java
+D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\service\Impl\RefLinkServiceImpl.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\model\BaseResponse.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\service\Impl\RoleServiceImpl.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\repository\CategoryRepository.java
@@ -81,6 +87,7 @@ D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarm
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\repository\UserRepository.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\controller\CategoryController.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\repository\entity\Enum\ELogType.java
+D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\controller\ReflinkController.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\controller\UserController.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\service\Impl\MenuConfigServiceImpl.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\uitl\Constant.java
