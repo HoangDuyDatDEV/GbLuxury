@@ -14,4 +14,5 @@ public interface NewsService extends BaseService<News> {
      Page<NewsRes> searchNews(String title, String categoryId, Pageable pageable, boolean isCategoryParent);
      void updateNews(UUID newsId, NewsReq newsReq);
      void createNews(NewsReq newsReq);
+     NewsRes searchNewsDetail(UUID id);
 }

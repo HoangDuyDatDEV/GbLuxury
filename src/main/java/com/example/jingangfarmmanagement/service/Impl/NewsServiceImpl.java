@@ -1,5 +1,6 @@
 package com.example.jingangfarmmanagement.service.Impl;
 import com.example.jingangfarmmanagement.model.response.CategoryRes;
+import com.example.jingangfarmmanagement.model.response.RefLinkRes;
 import com.example.jingangfarmmanagement.repository.RefLinkRepository;
 import com.example.jingangfarmmanagement.repository.entity.RefLink;
 import cz.jirutka.rsql.parser.ast.Node;
@@ -145,7 +146,52 @@ public class NewsServiceImpl extends BaseServiceImpl<News> implements NewsServic
 
         return newsRes;
     }
+    @Override
+    public NewsRes searchNewsDetail(UUID id) {
+        News resultPage = newsRepository.findByNewsId(id.toString());
+        return mapToNewsResDetail(resultPage);
+    }
+    private NewsRes mapToNewsResDetail(News entity) {
+        NewsRes newsRes = new NewsRes();
+        newsRes.setId(entity.getId().toString());
+        newsRes.setTitle(entity.getTitle());
+        newsRes.setDescription(entity.getDescription());
+        newsRes.setImage(entity.getImage());
+        newsRes.setContent(entity.getContent());
 
+        // Map CategoryRes nếu tồn tại
+        if (entity.getCategory() != null) {
+            CategoryRes categoryRes = new CategoryRes();
+            categoryRes.setId(entity.getCategory().getId().toString());
+            categoryRes.setPath(entity.getCategory().getPath());
+            categoryRes.setCode(entity.getCategory().getCode());
+            categoryRes.setTitle(entity.getCategory().getTitle());
+            categoryRes.setName(entity.getCategory().getName());
+            if(entity.getCategory().getParentCategory() != null) {
+                CategoryRes categoryResParent = new CategoryRes();
+                categoryResParent.setId(entity.getCategory().getParentCategory().getId().toString());
+                categoryResParent.setPath(entity.getCategory().getParentCategory().getPath());
+                categoryResParent.setCode(entity.getCategory().getParentCategory().getCode());
+                categoryResParent.setTitle(entity.getCategory().getParentCategory().getTitle());
+                categoryResParent.setName(entity.getCategory().getParentCategory().getName());
+                categoryRes.setParentCategory(categoryResParent);
+            }
+            newsRes.setCategoryRes(categoryRes);
+        }
+        List<RefLink> refLinks = refLinkRepository.findByNews(entity);
+        if(refLinks !=null){
+            List<RefLinkRes> refLinkRes = new ArrayList<>();
+            for(var refLink : refLinks){
+                RefLinkRes linkRes = new RefLinkRes();
+                linkRes.setLink(refLink.getLink());
+                linkRes.setNo(refLink.getNo());
+                linkRes.setId(refLink.getId().toString());
+                refLinkRes.add(linkRes);
+            }
+            newsRes.setRefLinkRes(refLinkRes);
+        }
+        return newsRes;
+    }
 
 
 

@@ -48,6 +48,12 @@ public class NewsController extends BaseController<News> {
         Page<NewsRes> newsResPage = newsService.searchNews(title, categoryId, pageable, isCategoryParent);
         return ResponseEntity.ok(newsResPage);
     }
+    @GetMapping("/detail/custom")
+    public ResponseEntity<NewsRes> detailNews(
+            @RequestParam(value = "id") UUID id) {
+        NewsRes newsRes = newsService.searchNewsDetail(id);
+        return ResponseEntity.ok(newsRes);
+    }
 
     /**
      * Update existing news

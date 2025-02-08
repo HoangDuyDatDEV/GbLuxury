@@ -12,7 +12,7 @@ import java.util.List;
 
 @Repository
 public interface NewsRepository extends BaseRepository<News> {
-    @Query(value = "SELECT * FROM News n " +
+    @Query(value = "SELECT * FROM news n " +
             "WHERE n.category_id = :categoryId " +
             "AND (:title IS NULL OR n.title LIKE CONCAT('%', :title, '%'))",
             countQuery = "SELECT COUNT(*) FROM News n " +
@@ -22,7 +22,7 @@ public interface NewsRepository extends BaseRepository<News> {
     Page<News> findByCategoryIdAndTitle(@Param("categoryId") String categoryId,
                                         @Param("title") String title,
                                         Pageable pageable);
-    @Query(value = "SELECT * FROM News n " +
+    @Query(value = "SELECT * FROM news n " +
             "JOIN Category c ON n.category_id = c.id " +
             "WHERE c.parent_id = :parentId " +
             "AND (:title IS NULL OR n.title LIKE CONCAT('%', :title, '%'))",
@@ -34,10 +34,13 @@ public interface NewsRepository extends BaseRepository<News> {
     Page<News> findNewsByCategoryParent(@Param("parentId") String parentId,
                                         @Param("title") String title,
                                         Pageable pageable);
-    @Query(value = "SELECT * FROM News n " +
+    @Query(value = "SELECT * FROM news n " +
             "WHERE (:title IS NULL OR n.title LIKE CONCAT('%', :title, '%'))",
             countQuery = "SELECT COUNT(*) FROM News n " +
                     "WHERE (:title IS NULL OR n.title LIKE CONCAT('%', :title, '%'))",
             nativeQuery = true)
     Page<News> findNewsByTitleContaining(@Param("title") String title, Pageable pageable);
+    @Query(value = "SELECT * FROM news n WHERE n.id = :id", nativeQuery = true)
+    News findByNewsId(@Param("id") String id);
+
 }
