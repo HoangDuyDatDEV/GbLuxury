@@ -1,5 +1,7 @@
 package com.example.jingangfarmmanagement.controller;
 
+import com.example.jingangfarmmanagement.model.req.MenuConfigReq;
+import com.example.jingangfarmmanagement.model.req.NewsReq;
 import com.example.jingangfarmmanagement.model.response.MenuConfigRes;
 import com.example.jingangfarmmanagement.repository.entity.Category;
 import com.example.jingangfarmmanagement.repository.entity.MenuConfig;
@@ -70,5 +72,17 @@ public class MenuConfigController extends BaseController<MenuConfig> {
         } catch (Exception e) {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
+    }
+    @PutMapping("/custom/update")
+    public ResponseEntity<String> updateMenuConfig(
+            @RequestBody MenuConfigReq menuConfigReq) {
+        menuConfigService.updateMenuConfig(menuConfigReq);
+        return ResponseEntity.ok("MenuConfig updated successfully!");
+    }
+
+    @PostMapping("/custom/create")
+    public ResponseEntity<String> createMenuConfig(@RequestBody MenuConfigReq menuConfigReq) {
+        menuConfigService.createMenuConfig(menuConfigReq);
+        return ResponseEntity.ok("MenuConfig created successfully!");
     }
 }

@@ -28,8 +28,6 @@ public class Category extends BaseEntity {
     @OneToMany(mappedBy = "category", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<News> news;
 
-    @ManyToMany(mappedBy = "categories")
-    private Set<MenuConfig> menuConfigs;
 
     @ManyToOne
     @JoinColumn(name = "parent_id")

@@ -12,16 +12,10 @@ import java.util.Set;
 @NoArgsConstructor
 @Data
 public class MenuConfig extends BaseEntity{
-    @Column(name = "news_id",columnDefinition = "TEXT")
-    private String newsId;
+    @Column(name = "category_id",columnDefinition = "TEXT")
+    private String categoryId;
     @Column(name = "quantity")
     private Long quantity;
-    @ManyToMany
-    @JoinTable(
-            name = "menu_catygory",
-            joinColumns = @JoinColumn(name = "menu_id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id")
-    )
-    private Set<Category> categories;
-
+    @Column(name = "news_id",columnDefinition = "TEXT")
+    private String newsId;
 }

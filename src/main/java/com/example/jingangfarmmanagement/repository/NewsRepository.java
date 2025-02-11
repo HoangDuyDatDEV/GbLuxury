@@ -15,7 +15,7 @@ public interface NewsRepository extends BaseRepository<News> {
     @Query(value = "SELECT * FROM news n " +
             "WHERE n.category_id = :categoryId " +
             "AND (:title IS NULL OR n.title LIKE CONCAT('%', :title, '%'))",
-            countQuery = "SELECT COUNT(*) FROM News n " +
+            countQuery = "SELECT COUNT(*) FROM news n " +
                     "WHERE n.category_id = :categoryId" +
                     "AND (:title IS NULL OR n.title LIKE CONCAT('%', :title, '%'))",
             nativeQuery = true)
@@ -23,11 +23,11 @@ public interface NewsRepository extends BaseRepository<News> {
                                         @Param("title") String title,
                                         Pageable pageable);
     @Query(value = "SELECT * FROM news n " +
-            "JOIN Category c ON n.category_id = c.id " +
+            "JOIN category c ON n.category_id = c.id " +
             "WHERE c.parent_id = :parentId " +
             "AND (:title IS NULL OR n.title LIKE CONCAT('%', :title, '%'))",
-            countQuery = "SELECT COUNT(*) FROM News n " +
-                    "JOIN Category c ON n.category_id = c.id " +
+            countQuery = "SELECT COUNT(*) FROM news n " +
+                    "JOIN category c ON n.category_id = c.id " +
                     "WHERE c.parent_id = :parentId" +
                     "AND (:title IS NULL OR n.title LIKE CONCAT('%', :title, '%'))",
             nativeQuery = true)
@@ -36,7 +36,7 @@ public interface NewsRepository extends BaseRepository<News> {
                                         Pageable pageable);
     @Query(value = "SELECT * FROM news n " +
             "WHERE (:title IS NULL OR n.title LIKE CONCAT('%', :title, '%'))",
-            countQuery = "SELECT COUNT(*) FROM News n " +
+            countQuery = "SELECT COUNT(*) FROM news n " +
                     "WHERE (:title IS NULL OR n.title LIKE CONCAT('%', :title, '%'))",
             nativeQuery = true)
     Page<News> findNewsByTitleContaining(@Param("title") String title, Pageable pageable);

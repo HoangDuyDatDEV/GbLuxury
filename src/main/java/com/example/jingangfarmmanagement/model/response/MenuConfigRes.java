@@ -7,7 +7,7 @@ import java.util.List;
 @Data
 public class MenuConfigRes {
     private String id;
-    private List<CategoryRes> categoryRes;
+    private CategoryRes categoryRes;
     private Long quantity;
     private List<NewsRes> newsRes;
 }
