@@ -20,7 +20,7 @@ public class News extends BaseEntity{
     private String image;
     @Column(name = "content",columnDefinition = "LONGTEXT")
     private String content;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "category_id")
     private Category category;
     @OneToMany(mappedBy = "news", cascade = CascadeType.ALL, orphanRemoval = true)

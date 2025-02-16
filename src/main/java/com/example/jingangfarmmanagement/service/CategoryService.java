@@ -11,6 +11,7 @@ import java.util.UUID;
 public interface CategoryService extends BaseService<Category> {
     public List<CategoryDTO> getCategoryTree();
     public CategoryDTO getCategoryTreeById(UUID parentId);
+    CategoryDTO getCategoryTreeByCode(String code);
     public void createCategory(CategoryDTO categoryDTO);
     public void updateCategory(UUID categoryId, CategoryDTO categoryDTO);
 }

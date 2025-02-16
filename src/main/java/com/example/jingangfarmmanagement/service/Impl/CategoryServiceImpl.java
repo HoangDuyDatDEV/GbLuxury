@@ -62,6 +62,20 @@ public class CategoryServiceImpl extends BaseServiceImpl<Category> implements Ca
         // Chuyển đổi category thành DTO trước khi trả về
         return convertToDTO(parentCategory);
     }
+    @Override
+    public CategoryDTO getCategoryTreeByCode(String code) {
+        Category parentCategory = categoryRepository.findByCode(code);
+
+        List<Category> allCategories = categoryRepository.findAll();
+
+        // Set để lưu các id của category đã được duyệt
+        Set<UUID> visitedCategories = new HashSet<>();
+
+        buildCategoryTree(parentCategory, allCategories, visitedCategories);
+
+        // Chuyển đổi category thành DTO trước khi trả về
+        return convertToDTO(parentCategory);
+    }
 
     private void buildCategoryTree(Category parent, List<Category> allCategories, Set<UUID> visitedCategories) {
         // Kiểm tra xem category này đã được duyệt qua chưa để tránh vòng lặp

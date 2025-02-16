@@ -81,6 +81,7 @@ com\example\jingangfarmmanagement\WebConfig.class
 com\example\jingangfarmmanagement\query\GenericRsqlSpecification$1.class
 com\example\jingangfarmmanagement\repository\CategoryRepository.class
 com\example\jingangfarmmanagement\repository\MenuConfigRepository.class
+com\example\jingangfarmmanagement\model\req\MenuConfigReq.class
 com\example\jingangfarmmanagement\model\response\NewsRes.class
 com\example\jingangfarmmanagement\query\CustomRsqlVisitor.class
 com\example\jingangfarmmanagement\repository\NewsRepository.class

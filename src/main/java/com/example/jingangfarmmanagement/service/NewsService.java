@@ -15,4 +15,5 @@ public interface NewsService extends BaseService<News> {
      void updateNews(UUID newsId, NewsReq newsReq);
      void createNews(NewsReq newsReq);
      NewsRes searchNewsDetail(UUID id);
+     void deleteNews(UUID newsId);
 }

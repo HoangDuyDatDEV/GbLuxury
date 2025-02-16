@@ -25,6 +25,8 @@ import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import javax.transaction.Transactional;
+
 import org.springframework.data.domain.Pageable;
 
 import java.util.ArrayList;
@@ -120,7 +122,7 @@ public class NewsServiceImpl extends BaseServiceImpl<News> implements NewsServic
         newsRes.setId(entity.getId().toString());
         newsRes.setTitle(entity.getTitle());
         newsRes.setDescription(entity.getDescription());
-//        newsRes.setImage(entity.getImage());
+        newsRes.setImage(entity.getImage());
 //        newsRes.setContent(entity.getContent());
 
         // Map CategoryRes nếu tồn tại
@@ -193,7 +195,12 @@ public class NewsServiceImpl extends BaseServiceImpl<News> implements NewsServic
         return newsRes;
     }
 
-
+    @Override
+    @Transactional
+    public void deleteNews(UUID newsId) {
+        refLinkRepository.deleteRefLinksByNewsId(newsId);
+        newsRepository.deleteNewsById(newsId);
+    }
 
 }
 

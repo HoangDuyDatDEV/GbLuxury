@@ -21,6 +21,7 @@ D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarm
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\repository\entity\UserRole.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\repository\RefLinkRepository.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\exception\GlobalException.java
+D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\model\req\MenuConfigReq.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\model\req\CreateUserReq.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\config\MinIOConfig.java
 D:\Devlopment\Project\ADSXanhTech\GbLuxury\src\main\java\com\example\jingangfarmmanagement\service\RefLinkService.java

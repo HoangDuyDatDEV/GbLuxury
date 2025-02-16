@@ -35,6 +35,10 @@ public class CategoryController extends BaseController<Category> {
     public CategoryDTO getCategoryTreeById(@RequestParam UUID parentId){
         return  categoryService.getCategoryTreeById(parentId);
     }
+    @GetMapping("/tree/by-code")
+    public CategoryDTO getCategoryTreeByCode(@RequestParam String code){
+        return  categoryService.getCategoryTreeByCode(code);
+    }
     @GetMapping("/client/tree")
     public List<CategoryDTO> getCategoryClientTree() {
         return categoryService.getCategoryTree();

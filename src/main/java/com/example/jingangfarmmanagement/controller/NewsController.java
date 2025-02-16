@@ -54,6 +54,12 @@ public class NewsController extends BaseController<News> {
         NewsRes newsRes = newsService.searchNewsDetail(id);
         return ResponseEntity.ok(newsRes);
     }
+    @GetMapping("client/detail/custom")
+    public ResponseEntity<NewsRes> detailClientNews(
+            @RequestParam(value = "id") UUID id) {
+        NewsRes newsRes = newsService.searchNewsDetail(id);
+        return ResponseEntity.ok(newsRes);
+    }
 
     /**
      * Update existing news
@@ -109,10 +115,14 @@ public class NewsController extends BaseController<News> {
     }
     private String getFileExtension(String fileName) {
         int dotIndex = fileName.lastIndexOf('.');
-        if (dotIndex > 0) { // Kiểm tra xem tên file có chứa dấu chấm (.) không
-            return fileName.substring(dotIndex + 1).toLowerCase(); // Lấy phần mở rộng sau dấu chấm và chuyển thành chữ thường
+        if (dotIndex > 0) {
+            return fileName.substring(dotIndex + 1).toLowerCase();
         } else {
-            return ""; // Nếu không có phần mở rộng, trả về chuỗi rỗng
+            return "";
         }
+    }
+    @DeleteMapping("/custom/delete")
+    public void deleteNews(@RequestParam UUID newsId){
+         newsService.deleteNews(newsId);
     }
 }
