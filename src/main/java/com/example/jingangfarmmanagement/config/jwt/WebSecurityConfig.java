@@ -34,6 +34,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/**/user/create").permitAll()
                 .antMatchers("/**/categories/client/tree").permitAll()
                 .antMatchers("/**/categories/client/tree/by-id").permitAll()
+                .antMatchers("/**/categories/client/tree/by-code").permitAll()
                 .antMatchers("/**/news/client/search/custom").permitAll()
                 .antMatchers("/**/menu_config/client/search/custom").permitAll()
                 .antMatchers("/**/menu_config/client/custom/by-id").permitAll()
