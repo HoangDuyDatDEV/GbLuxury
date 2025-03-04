@@ -14,7 +14,7 @@ import java.util.List;
 @Repository
 public interface CategoryRepository extends BaseRepository<Category> {
     @Query(value = "SELECT * FROM category c " +
-            "WHERE  (:code IS NULL OR c.code LIKE CONCAT('%', :code, '%'))",
+            "WHERE  (:code IS NULL OR c.code = :code)",
             nativeQuery = true)
     Category findByCode(@Param("code") String code);
 }
