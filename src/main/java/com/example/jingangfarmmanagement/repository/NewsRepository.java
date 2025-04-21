@@ -18,7 +18,7 @@ public interface NewsRepository extends BaseRepository<News> {
             "WHERE n.category_id = :categoryId " +
             "AND (:title IS NULL OR n.title LIKE CONCAT('%', :title, '%'))",
             countQuery = "SELECT COUNT(*) FROM news n " +
-                    "WHERE n.category_id = :categoryId" +
+                    "WHERE n.category_id = :categoryId " +
                     "AND (:title IS NULL OR n.title LIKE CONCAT('%', :title, '%'))",
             nativeQuery = true)
     Page<News> findByCategoryIdAndTitle(@Param("categoryId") String categoryId,
@@ -30,7 +30,7 @@ public interface NewsRepository extends BaseRepository<News> {
             "AND (:title IS NULL OR n.title LIKE CONCAT('%', :title, '%'))",
             countQuery = "SELECT COUNT(*) FROM news n " +
                     "JOIN category c ON n.category_id = c.id " +
-                    "WHERE c.parent_id = :parentId" +
+                    "WHERE c.parent_id = :parentId " +
                     "AND (:title IS NULL OR n.title LIKE CONCAT('%', :title, '%'))",
             nativeQuery = true)
     Page<News> findNewsByCategoryParent(@Param("parentId") String parentId,
